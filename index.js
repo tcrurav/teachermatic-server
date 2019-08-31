@@ -8,8 +8,6 @@ const bodyParser = require('body-parser');
 const student = require('./routes/student.route');
 const classroom = require('./routes/classroom.route');
 
-// const classroom_controller = require('../controllers/classroom.controller');
-
 var cors = require('cors');
 
 const app = express();
@@ -34,8 +32,6 @@ app.use('/classrooms', classroom);
 var server = require('http').createServer(app);
 var io = require('socket.io')(server);
 
-// var messages = [ {message: 'hola'} ];
-
 io.on('connection', function (socket) {
   console.log('Alguien se ha conectado con Sockets');
 
@@ -50,7 +46,7 @@ io.on('connection', function (socket) {
   });
 
   socket.on('disconnect', function () {
-
+    console.log('Alguien se ha desconectado de un socket');
   });
 
 });
